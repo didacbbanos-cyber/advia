@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="google-site-verification" content="-hroIfLI3XyFtZeXyvAv6VvAXvcUDVt3Zv8AHSAjDaI" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<title>Advertise IA — Tu Agencia de Marketing con IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --blue: #1A4FD6;
+    --blue-light: #3B6EF0;
+    --blue-pale: #EBF0FF;
+    --blue-mid: #C5D4FF;
+    --navy: #0D2B6B;
+    --white: #FFFFFF;
+    --off: #F7F9FF;
+    --text: #0F172A;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(26,79,214,0.10);
+    --shadow-lg: 0 12px 48px rgba(26,79,214,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 900;
+    color: var(--navy);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .nav-logo span { color: var(--blue); }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a {
+    font-size: 0.9rem; color: var(--muted); text-decoration: none;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .lang-toggle {
+    display: flex; background: var(--blue-pale); border-radius: 999px;
+    padding: 3px; gap: 2px;
+  }
+  .lang-btn {
+    border: none; background: transparent; cursor: pointer;
+    padding: 0.3rem 0.7rem; border-radius: 999px;
+    font-size: 0.78rem; font-weight: 600; color: var(--muted);
+    transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .lang-btn.active {
+    background: var(--blue); color: white;
+  }
+  .nav-cta {
+    background: var(--blue); color: white; border: none;
+    padding: 0.5rem 1.2rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--blue-light); }
+
+  /* HERO */
+  .hero {
+    padding: 140px 2.5rem 80px;
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--blue-pale); border: 1px solid var(--blue-mid);
+    color: var(--blue); font-size: 0.78rem; font-weight: 600;
+    padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1.2rem;
+    letter-spacing: 0.04em;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    line-height: 1.1; color: var(--navy); margin-bottom: 1.2rem;
+  }
+  .hero h1 em { color: var(--blue); font-style: normal; }
+  .hero p {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+    margin-bottom: 2rem; max-width: 480px;
+  }
+  .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--blue); color: white; border: none;
+    padding: 0.75rem 1.6rem; border-radius: 999px;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 20px rgba(26,79,214,0.35);
+    transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--blue);
+    border: 2px solid var(--blue-mid); padding: 0.75rem 1.4rem;
+    border-radius: 999px; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--blue-pale); }
+
+  /* CHAT PREVIEW in hero */
+  .hero-chat {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: floatUp 0.8s ease both;
+  }
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .chat-topbar {
+    background: var(--navy); padding: 1rem 1.2rem;
+    display: flex; align-items: center; gap: 0.7rem;
+  }
+  .chat-avatar {
+    width: 36px; height: 36px; background: var(--blue);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 1rem; color: white;
+    font-weight: 700; font-family: 'Playfair Display', serif;
+  }
+  .chat-topbar-info { flex: 1; }
+  .chat-topbar-name { font-size: 0.9rem; font-weight: 600; color: white; }
+  .chat-topbar-status { font-size: 0.73rem; color: #93C5FD; display: flex; align-items: center; gap: 0.3rem; }
+  .status-dot { width: 6px; height: 6px; background: #4ADE80; border-radius: 50%; }
+  .chat-messages { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; background: var(--off); min-height: 200px; }
+  .msg { max-width: 85%; padding: 0.7rem 1rem; border-radius: 12px; font-size: 0.85rem; line-height: 1.5; }
+  .msg-user { background: var(--blue); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .msg-ai { background: white; color: var(--text); border: 1px solid var(--border); align-self: flex-start; border-bottom-left-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .msg-ai strong { color: var(--blue); }
+
+  /* STATS */
+  .stats {
+    background: var(--navy);
+    padding: 3rem 2.5rem;
+  }
+  .stats-inner {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 900; color: white; line-height: 1;
+  }
+  .stat-num span { color: #60A5FA; }
+  .stat-label { font-size: 0.85rem; color: #93C5FD; margin-top: 0.3rem; }
+
+  /* FEATURES */
+  .features {
+    padding: 5rem 2.5rem;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .section-label {
+    font-size: 0.78rem; font-weight: 600; color: var(--blue);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--navy); margin-bottom: 0.8rem; line-height: 1.2;
+  }
+  .section-sub { font-size: 1rem; color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 3rem; }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .feature-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: var(--radius); padding: 1.5rem;
+    transition: all 0.25s;
+  }
+  .feature-card:hover {
+    border-color: var(--blue-mid); box-shadow: var(--shadow);
+    transform: translateY(-3px);
+  }
+  .feature-icon {
+    width: 44px; height: 44px; background: var(--blue-pale);
+    border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; font-size: 1.3rem; margin-bottom: 1rem;
+  }
+  .feature-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+  .feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* CHAT SECTION */
+  .chat-section {
+    background: var(--off);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 2.5rem;
+  }
+  .chat-section-inner {
+    max-width: 800px; margin: 0 auto;
+  }
+  .chat-section-header { text-align: center; margin-bottom: 2rem; }
+  .live-chat-box {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  .live-chat-header {
+    background: var(--navy); padding: 1rem 1.4rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .live-chat-avatar {
+    width: 40px; height: 40px; background: var(--blue);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-family: 'Playfair Display', serif;
+    font-weight: 900; color: white; font-size: 1.1rem;
+  }
+  .live-chat-title { font-weight: 700; color: white; font-size: 0.95rem; }
+  .live-chat-sub { font-size: 0.75rem; color: #93C5FD; display: flex; align-items: center; gap: 0.3rem; }
+  #chat-messages {
+    height: 340px; overflow-y: auto; padding: 1.2rem;
+    display: flex; flex-direction: column; gap: 0.9rem;
+    background: var(--off);
+  }
+  #chat-messages::-webkit-scrollbar { width: 4px; }
+  #chat-messages::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 4px; }
+  .chat-msg {
+    max-width: 80%; padding: 0.8rem 1rem;
+    border-radius: 14px; font-size: 0.88rem; line-height: 1.6;
+    animation: msgIn 0.3s ease both;
+  }
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .chat-msg.user {
+    background: var(--blue); color: white;
+    align-self: flex-end; border-bottom-right-radius: 4px;
+  }
+  .chat-msg.ai {
+    background: white; color: var(--text);
+    border: 1px solid var(--border); align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .chat-msg.typing {
+    background: white; border: 1px solid var(--border);
+    align-self: flex-start; border-bottom-left-radius: 4px;
+    color: var(--muted); font-style: italic; font-size: 0.82rem;
+  }
+  .chat-input-row {
+    display: flex; gap: 0.6rem; padding: 1rem 1.2rem;
+    border-top: 1px solid var(--border); background: white;
+  }
+  #chat-input {
+    flex: 1; border: 1.5px solid var(--border); border-radius: 999px;
+    padding: 0.65rem 1.1rem; font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif; color: var(--text);
+    outline: none; transition: border-color 0.2s;
+    background: var(--off);
+  }
+  #chat-input:focus { border-color: var(--blue); background: white; }
+  #send-btn {
+    background: var(--blue); color: white; border: none;
+    width: 42px; height: 42px; border-radius: 50%;
+    cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 1rem; transition: background 0.2s;
+    flex-shrink: 0;
+  }
+  #send-btn:hover { background: var(--blue-light); }
+  #send-btn:disabled { background: var(--border); cursor: not-allowed; }
+  .quick-prompts {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    padding: 0.7rem 1.2rem; border-top: 1px solid var(--border);
+    background: var(--off);
+  }
+  .quick-btn {
+    background: white; border: 1px solid var(--blue-mid);
+    color: var(--blue); border-radius: 999px;
+    padding: 0.35rem 0.8rem; font-size: 0.78rem; font-weight: 500;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+  }
+  .quick-btn:hover { background: var(--blue); color: white; }
+
+  /* HOW IT WORKS */
+  .how {
+    padding: 5rem 2.5rem;
+    max-width: 900px; margin: 0 auto; text-align: center;
+  }
+  .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+  .step { position: relative; }
+  .step-num {
+    width: 48px; height: 48px; background: var(--blue);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 900; color: white;
+    margin: 0 auto 1rem;
+  }
+  .step h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+  .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A4FD6 100%);
+    padding: 5rem 2.5rem; text-align: center;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: white; margin-bottom: 1rem;
+  }
+  .cta-section p { color: #93C5FD; font-size: 1rem; margin-bottom: 2rem; }
+  .btn-white {
+    background: white; color: var(--blue); border: none;
+    padding: 0.9rem 2rem; border-radius: 999px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    transition: all 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 2.5rem; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.82rem; color: var(--muted);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    color: var(--navy); font-size: 1rem;
+  }
+  .footer-logo span { color: var(--blue); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 1.2rem 3rem; gap: 2.5rem; }
+    .hero-chat { display: none; }
+    .stats-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .features, .how { padding: 3rem 1.2rem; }
+    .chat-section { padding: 3rem 1.2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  /* Animations */
+  .fade-in { animation: fadeIn 0.7s ease both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-in-2 { animation: fadeIn 0.7s 0.15s ease both; }
+  .fade-in-3 { animation: fadeIn 0.7s 0.3s ease both; }
+
+  /* AUTH MODAL */
+  .auth-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+  }
+  .auth-overlay.active { display: flex; }
+  .auth-box {
+    background: white; border-radius: 20px; padding: 2.5rem;
+    width: 100%; max-width: 400px; margin: 1rem;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.2); position: relative;
+  }
+  .auth-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--navy);
+    text-align: center; margin-bottom: 0.3rem;
+  }
+  .auth-sub { text-align: center; color: var(--muted); font-size: 0.88rem; margin-bottom: 1.5rem; }
+  .auth-tabs { display: flex; margin-bottom: 1.5rem; border: 1.5px solid var(--border); border-radius: 999px; overflow: hidden; }
+  .auth-tab {
+    flex: 1; padding: 0.5rem; text-align: center;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer;
+    border: none; background: transparent; font-family: 'DM Sans', sans-serif;
+    color: var(--muted); transition: all 0.2s;
+  }
+  .auth-tab.active { background: var(--blue); color: white; border-radius: 999px; }
+  .auth-input {
+    width: 100%; border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 0.75rem 1rem; font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+    color: var(--text); outline: none; margin-bottom: 0.8rem;
+    transition: border-color 0.2s; box-sizing: border-box;
+  }
+  .auth-input:focus { border-color: var(--blue); }
+  .auth-submit {
+    width: 100%; background: var(--blue); color: white; border: none;
+    padding: 0.85rem; border-radius: 999px; font-size: 0.95rem;
+    font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s; margin-top: 0.3rem;
+  }
+  .auth-submit:hover { background: var(--blue-light); }
+  .auth-msg { font-size: 0.82rem; text-align: center; margin-top: 0.5rem; min-height: 1.2rem; }
+  .auth-msg.error { color: #ef4444; }
+  .auth-msg.success { color: #22c55e; }
+  .auth-close {
+    position: absolute; top: 1rem; right: 1.2rem;
+    background: none; border: none; font-size: 1.4rem;
+    cursor: pointer; color: var(--muted); line-height: 1;
+  }
+  .user-pill {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: var(--blue-pale); border: 1px solid var(--blue-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    /* AUTH MODAL */
+    .auth-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(13,43,107,0.7);
+      backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .auth-overlay.open { display: flex; }
+    .auth-box {
+      background: white; border-radius: 20px;
+      padding: 2.5rem; width: 90%; max-width: 420px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease both;
+    }
+    .auth-logo { text-align: center; margin-bottom: 1.5rem; }
+    .auth-logo img { height: 48px; }
+    .auth-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; color: #0D2B6B;
+      text-align: center; margin-bottom: 0.3rem;
+    }
+    .auth-sub { text-align: center; color: #64748B; font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .auth-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border: 1.5px solid #E2E8F0; border-radius: 10px; overflow: hidden; }
+    .auth-tab {
+      flex: 1; padding: 0.6rem; border: none; background: transparent;
+      font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+      font-weight: 600; cursor: pointer; color: #64748B; transition: all 0.2s;
+    }
+    .auth-tab.active { background: #1A4FD6; color: white; }
+    .auth-field { margin-bottom: 1rem; }
+    .auth-field label { display: block; font-size: 0.8rem; font-weight: 600; color: #0D2B6B; margin-bottom: 0.3rem; }
+    .auth-field input {
+      width: 100%; padding: 0.7rem 1rem; border: 1.5px solid #E2E8F0;
+      border-radius: 10px; font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .auth-field input:focus { border-color: #1A4FD6; }
+    .auth-submit {
+      width: 100%; padding: 0.8rem; background: #1A4FD6; color: white;
+      border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem; font-weight: 700; cursor: pointer; margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .auth-submit:hover { background: #3B6EF0; }
+    .auth-error { color: #ef4444; font-size: 0.8rem; text-align: center; margin-top: 0.5rem; }
+    .auth-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; color: #64748B;
+    }
+
+    /* USER MENU */
+    .user-menu { position: relative; }
+    .user-btn {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: #EBF0FF; border: none; border-radius: 999px;
+      padding: 0.4rem 1rem; cursor: pointer; font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 600; color: #1A4FD6;
+    }
+    .user-avatar {
+      width: 28px; height: 28px; background: #1A4FD6; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 0.75rem; font-weight: 700;
+    }
+
+    /* CHAT HISTORY */
+    .history-panel {
+      background: #F7F9FF; border-top: 1px solid #E2E8F0;
+      padding: 0.8rem 1.2rem;
+    }
+    .history-title { font-size: 0.75rem; font-weight: 700; color: #64748B; margin-bottom: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .history-list { display: flex; flex-direction: column; gap: 0.3rem; max-height: 120px; overflow-y: auto; }
+    .history-item {
+      background: white; border: 1px solid #E2E8F0; border-radius: 8px;
+      padding: 0.4rem 0.7rem; font-size: 0.8rem; color: #0F172A;
+      cursor: pointer; transition: all 0.15s; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+    .history-item:hover { border-color: #1A4FD6; color: #1A4FD6; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="logo.png" alt="Advertise IA" style="height:42px;width:auto;"/></div>
+  <div class="nav-links">
+    <a href="#features" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#chat" data-es="Probar IA" data-en="Try AI">Probar IA</a>
+    <a href="#how" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:0.8rem;">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="user-menu" id="user-menu">
+      <button class="nav-cta" onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})" id="btn-probar"
+        data-es="Probar gratis" data-en="Try free">Probar gratis</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="fade-in">
+    <div class="hero-badge">✦ <span data-es="Inteligencia Artificial para Marketing" data-en="Artificial Intelligence for Marketing">Inteligencia Artificial para Marketing</span></div>
+    <h1 data-es="Tu agencia de marketing,<br><em>potenciada con IA</em>" data-en="Your marketing agency,<br><em>powered by AI</em>">
+      Tu agencia de marketing,<br><em>potenciada con IA</em>
+    </h1>
+    <p data-es="Estrategia, anuncios y contenido para tu negocio — generados por IA experta en marketing, disponible 24/7 y totalmente gratis para empezar."
+       data-en="Strategy, ads and content for your business — generated by expert marketing AI, available 24/7 and completely free to start.">
+      Estrategia, anuncios y contenido para tu negocio — generados por IA experta en marketing, disponible 24/7 y totalmente gratis para empezar.
+    </p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})"
+        data-es="🚀 Probar ahora gratis" data-en="🚀 Try now for free">🚀 Probar ahora gratis</button>
+      <button class="btn-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})"
+        data-es="Cómo funciona" data-en="How it works">Cómo funciona</button>
+    </div>
+  </div>
+  <div class="hero-chat fade-in-2">
+    <div class="chat-topbar">
+      <div class="chat-avatar">A</div>
+      <div class="chat-topbar-info">
+        <div class="chat-topbar-name">Advertise IA</div>
+        <div class="chat-topbar-status"><div class="status-dot"></div> <span data-es="En línea ahora" data-en="Online now">En línea ahora</span></div>
+      </div>
+    </div>
+    <div class="chat-messages">
+      <div class="msg msg-user" data-es="¿Cómo puedo mejorar mis anuncios de Meta?" data-en="How can I improve my Meta ads?">¿Cómo puedo mejorar mis anuncios de Meta?</div>
+      <div class="msg msg-ai" data-es="Para mejorar tus anuncios en Meta, te recomiendo:<br><br><strong>1. Hook en los primeros 3 segundos</strong> — usa una pregunta o dato impactante.<br><strong>2. Prueba 3 creatividades distintas</strong> por cada audiencia.<br><strong>3. Optimiza para conversiones</strong>, no para clics.<br><br>¿Cuál es tu sector? Te doy ejemplos concretos."
+         data-en="To improve your Meta ads, I recommend:<br><br><strong>1. Hook in the first 3 seconds</strong> — use a question or impactful stat.<br><strong>2. Test 3 different creatives</strong> per audience.<br><strong>3. Optimize for conversions</strong>, not clicks.<br><br>What's your industry? I'll give you concrete examples.">
+        Para mejorar tus anuncios en Meta, te recomiendo:<br><br><strong>1. Hook en los primeros 3 segundos</strong> — usa una pregunta o dato impactante.<br><strong>2. Prueba 3 creatividades distintas</strong> por cada audiencia.<br><strong>3. Optimiza para conversiones</strong>, no para clics.<br><br>¿Cuál es tu sector? Te doy ejemplos concretos.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">24<span>/7</span></div>
+      <div class="stat-label" data-es="Disponible siempre" data-en="Always available">Disponible siempre</div>
+    </div>
+    <div>
+      <div class="stat-num">3<span>x</span></div>
+      <div class="stat-label" data-es="Más rápido que una agencia" data-en="Faster than an agency">Más rápido que una agencia</div>
+    </div>
+    <div>
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label" data-es="Gratis para empezar" data-en="Free to start">Gratis para empezar</div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-label" data-es="¿Qué hace Advertise IA?" data-en="What does Advertise IA do?">¿Qué hace Advertise IA?</div>
+  <h2 class="section-title" data-es="Todo lo que necesitas para crecer" data-en="Everything you need to grow">Todo lo que necesitas para crecer</h2>
+  <p class="section-sub" data-es="Una IA entrenada en marketing digital que actúa como tu consultor experto, copywriter y estratega, todo en uno."
+     data-en="An AI trained in digital marketing that acts as your expert consultant, copywriter and strategist, all in one.">
+    Una IA entrenada en marketing digital que actúa como tu consultor experto, copywriter y estratega, todo en uno.
+  </p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <h3 data-es="Estrategia de marketing" data-en="Marketing strategy">Estrategia de marketing</h3>
+      <p data-es="Planes personalizados según tu negocio, presupuesto y objetivos. Sin relleno, solo acciones concretas."
+         data-en="Personalized plans based on your business, budget and goals. No fluff, just concrete actions.">
+        Planes personalizados según tu negocio, presupuesto y objetivos. Sin relleno, solo acciones concretas.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📢</div>
+      <h3 data-es="Copies para anuncios" data-en="Ad copy">Copies para anuncios</h3>
+      <p data-es="Textos que convierten para Meta Ads, Google Ads, TikTok Ads. Con hooks, CTAs y estructuras probadas."
+         data-en="Converting copy for Meta Ads, Google Ads, TikTok Ads. With hooks, CTAs and proven structures.">
+        Textos que convierten para Meta Ads, Google Ads, TikTok Ads. Con hooks, CTAs y estructuras probadas.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✍️</div>
+      <h3 data-es="Contenido para redes" data-en="Social media content">Contenido para redes</h3>
+      <p data-es="Ideas y textos para Instagram, LinkedIn, TikTok y más. Adaptados al tono y audiencia de tu marca."
+         data-en="Ideas and content for Instagram, LinkedIn, TikTok and more. Adapted to your brand's tone and audience.">
+        Ideas y textos para Instagram, LinkedIn, TikTok y más. Adaptados al tono y audiencia de tu marca.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3 data-es="Análisis de métricas" data-en="Metrics analysis">Análisis de métricas</h3>
+      <p data-es="Interpreta tus datos de campañas y te dice qué está fallando y cómo mejorarlo con pasos concretos."
+         data-en="Interprets your campaign data and tells you what's failing and how to fix it with concrete steps.">
+        Interpreta tus datos de campañas y te dice qué está fallando y cómo mejorarlo con pasos concretos.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📧</div>
+      <h3 data-es="Email marketing" data-en="Email marketing">Email marketing</h3>
+      <p data-es="Secuencias de emails, newsletters y campañas que generan aperturas, clics y ventas reales."
+         data-en="Email sequences, newsletters and campaigns that generate opens, clicks and real sales.">
+        Secuencias de emails, newsletters y campañas que generan aperturas, clics y ventas reales.
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💡</div>
+      <h3 data-es="Consultoría express" data-en="Express consulting">Consultoría express</h3>
+      <p data-es="Responde cualquier duda de marketing al instante, como un consultor senior con 10 años de experiencia."
+         data-en="Answers any marketing question instantly, like a senior consultant with 10 years of experience.">
+        Responde cualquier duda de marketing al instante, como un consultor senior con 10 años de experiencia.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE CHAT -->
+<section class="chat-section" id="chat">
+  <div class="chat-section-inner">
+    <div class="chat-section-header">
+      <div class="section-label" data-es="Pruébalo ahora mismo" data-en="Try it right now">Pruébalo ahora mismo</div>
+      <h2 class="section-title" data-es="Habla con Advertise IA" data-en="Talk to Advertise IA">Habla con Advertise IA</h2>
+      <p class="section-sub" style="margin:0 auto;" data-es="Escribe cualquier pregunta de marketing. Respuesta experta al instante, gratis."
+         data-en="Write any marketing question. Expert answer instantly, for free.">
+        Escribe cualquier pregunta de marketing. Respuesta experta al instante, gratis.
+      </p>
+    </div>
+    <div class="live-chat-box">
+      <div class="live-chat-header">
+        <div class="live-chat-avatar">A</div>
+        <div>
+          <div class="live-chat-title">Advertise IA</div>
+          <div class="live-chat-sub"><div class="status-dot"></div> <span data-es="Listo para ayudarte" data-en="Ready to help you">Listo para ayudarte</span></div>
+        </div>
+      </div>
+      <div id="chat-messages">
+        <div class="chat-msg ai" id="welcome-msg">
+          👋 <span data-es="¡Hola! Soy Advertise IA, tu experto en marketing digital. ¿En qué puedo ayudarte hoy? Puedes preguntarme sobre estrategia, anuncios, contenido o cualquier duda de marketing."
+                   data-en="Hi! I'm Advertise IA, your digital marketing expert. How can I help you today? You can ask me about strategy, ads, content or any marketing question.">
+          ¡Hola! Soy Advertise IA, tu experto en marketing digital. ¿En qué puedo ayudarte hoy? Puedes preguntarme sobre estrategia, anuncios, contenido o cualquier duda de marketing.
+          </span>
+        </div>
+      </div>
+      <div class="quick-prompts" id="quick-prompts">
+        <button class="quick-btn" data-es="¿Cómo mejorar mis anuncios de Meta?" data-en="How to improve my Meta ads?" onclick="sendQuick(this)">¿Cómo mejorar mis anuncios de Meta?</button>
+        <button class="quick-btn" data-es="Crea un post para Instagram" data-en="Create an Instagram post" onclick="sendQuick(this)">Crea un post para Instagram</button>
+        <button class="quick-btn" data-es="Estrategia para más ventas" data-en="Strategy for more sales" onclick="sendQuick(this)">Estrategia para más ventas</button>
+      </div>
+      <div class="history-panel" id="history-panel" style="display:none;">
+        <div class="history-title">💬 Conversaciones guardadas</div>
+        <div class="history-list" id="history-list"></div>
+      </div>
+      <div class="chat-input-row">
+        <input id="chat-input" type="text" placeholder="Escribe tu pregunta de marketing..."
+          data-es-placeholder="Escribe tu pregunta de marketing..."
+          data-en-placeholder="Write your marketing question..."
+          onkeydown="if(event.key==='Enter')sendMessage()"/>
+        <button id="send-btn" onclick="sendMessage()">➤</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div class="section-label" data-es="Así de simple" data-en="That simple">Así de simple</div>
+  <h2 class="section-title" data-es="¿Cómo funciona?" data-en="How does it work?">¿Cómo funciona?</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3 data-es="Escribe tu pregunta" data-en="Write your question">Escribe tu pregunta</h3>
+      <p data-es="Cuéntale a la IA tu negocio, tu objetivo o el problema que quieres resolver."
+         data-en="Tell the AI about your business, your goal or the problem you want to solve.">
+        Cuéntale a la IA tu negocio, tu objetivo o el problema que quieres resolver.
+      </p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3 data-es="Recibe recomendaciones" data-en="Get recommendations">Recibe recomendaciones</h3>
+      <p data-es="La IA analiza tu situación y te da estrategias, textos y pasos concretos en segundos."
+         data-en="The AI analyzes your situation and gives you strategies, copy and concrete steps in seconds.">
+        La IA analiza tu situación y te da estrategias, textos y pasos concretos en segundos.
+      </p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3 data-es="Aplica y crece" data-en="Apply and grow">Aplica y crece</h3>
+      <p data-es="Implementa las recomendaciones directamente en tu negocio y mide los resultados."
+         data-en="Implement the recommendations directly in your business and measure the results.">
+        Implementa las recomendaciones directamente en tu negocio y mide los resultados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 data-es="Empieza gratis ahora mismo" data-en="Start for free right now">Empieza gratis ahora mismo</h2>
+  <p data-es="Sin registro. Sin tarjeta. Solo escribe tu primera pregunta." data-en="No signup. No card. Just write your first question.">Sin registro. Sin tarjeta. Solo escribe tu primera pregunta.</p>
+  <button class="btn-white" onclick="document.getElementById('chat').scrollIntoView({behavior:'smooth'})"
+    data-es="🚀 Hablar con Advertise IA" data-en="🚀 Talk to Advertise IA">🚀 Hablar con Advertise IA</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Advertise<span> IA</span></div>
+  <div data-es="© 2025 Advertise IA. Todos los derechos reservados." data-en="© 2025 Advertise IA. All rights reserved.">© 2025 Advertise IA. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+  // ── SUPABASE ──
+  const SUPABASE_URL = 'https://radzdrfpkgjigcsizxsk.supabase.co';
+  const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJhZHpkcmZwa2dqaWdjc2l6eHNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3Njc2ODcsImV4cCI6MjA4OTM0MzY4N30.OnivCZjOHPZoetDdWS_2g-s6Y258bpDpCA7hcExf9PY';
+  let supabaseClient = null;
+  let currentUser = null;
+  let currentSessionId = null;
+
+  async function initSupabase() {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (session) {
+      currentUser = session.user;
+      updateUserUI();
+      loadHistory();
+    }
+  }
+
+  function openAuth() { document.getElementById('auth-overlay').classList.add('open'); }
+  function closeAuth() { document.getElementById('auth-overlay').classList.remove('open'); }
+
+  let authMode = 'login';
+  function switchTab(mode) {
+    authMode = mode;
+    document.getElementById('tab-login').classList.toggle('active', mode === 'login');
+    document.getElementById('tab-register').classList.toggle('active', mode === 'register');
+    document.getElementById('auth-btn').textContent = mode === 'login' ? 'Entrar' : 'Crear cuenta';
+    document.getElementById('auth-error').textContent = '';
+  }
+
+  async function submitAuth() {
+    const email = document.getElementById('auth-email').value;
+    const password = document.getElementById('auth-password').value;
+    const errEl = document.getElementById('auth-error');
+    errEl.textContent = '';
+
+    if (!email || !password) { errEl.textContent = 'Rellena todos los campos'; return; }
+
+    let result;
+    if (authMode === 'login') {
+      result = await supabaseClient.auth.signInWithPassword({ email, password });
+    } else {
+      result = await supabaseClient.auth.signUp({ email, password });
+    }
+
+    if (result.error) {
+      errEl.textContent = result.error.message;
+    } else {
+      currentUser = result.data.user || result.data.session?.user;
+      closeAuth();
+      updateUserUI();
+      loadHistory();
+      if (authMode === 'register') {
+        errEl.textContent = '';
+        alert('¡Cuenta creada! Revisa tu email para verificarla.');
+      }
+    }
+  }
+
+  function updateUserUI() {
+    const menu = document.getElementById('user-menu');
+    if (currentUser) {
+      const initial = currentUser.email[0].toUpperCase();
+      menu.innerHTML = `
+        <button class="user-btn" onclick="toggleUserMenu()">
+          <div class="user-avatar">${initial}</div>
+          ${currentUser.email.split('@')[0]}
+        </button>
+        <div id="user-dropdown" style="display:none;position:absolute;right:0;top:110%;background:white;border:1.5px solid #E2E8F0;border-radius:12px;padding:0.5rem;min-width:160px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:200;">
+          <div style="padding:0.4rem 0.8rem;font-size:0.8rem;color:#64748B;border-bottom:1px solid #E2E8F0;margin-bottom:0.3rem;">${currentUser.email}</div>
+          <button onclick="signOut()" style="width:100%;text-align:left;padding:0.4rem 0.8rem;border:none;background:none;cursor:pointer;font-size:0.85rem;color:#ef4444;border-radius:8px;">Cerrar sesión</button>
+        </div>
+      `;
+      document.getElementById('history-panel').style.display = 'block';
+    } else {
+      menu.innerHTML = `<button class="nav-cta" onclick="openAuth()">Iniciar sesión</button>`;
+      document.getElementById('history-panel').style.display = 'none';
+    }
+  }
+
+  function toggleUserMenu() {
+    const dd = document.getElementById('user-dropdown');
+    if (dd) dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+  }
+
+  async function signOut() {
+    await supabaseClient.auth.signOut();
+    currentUser = null;
+    currentSessionId = null;
+    updateUserUI();
+    document.getElementById('chat-messages').innerHTML = `
+      <div class="chat-msg ai">👋 ¡Hola! Soy Advertise IA. ¿En qué puedo ayudarte hoy?</div>
+    `;
+    messages = [];
+  }
+
+  async function saveMessage(role, content) {
+    if (!currentUser || !supabaseClient) return;
+    if (!currentSessionId) {
+      currentSessionId = Date.now().toString();
+    }
+    await supabaseClient.from('chat_messages').insert({
+      user_id: currentUser.id,
+      session_id: currentSessionId,
+      role: role,
+      content: content,
+      created_at: new Date().toISOString()
+    });
+    loadHistory();
+  }
+
+  async function loadHistory() {
+    if (!currentUser || !supabaseClient) return;
+    const { data } = await supabaseClient
+      .from('chat_messages')
+      .select('session_id, content, created_at')
+      .eq('user_id', currentUser.id)
+      .eq('role', 'user')
+      .order('created_at', { ascending: false });
+
+    if (!data) return;
+    const seen = new Set();
+    const sessions = data.filter(m => {
+      if (seen.has(m.session_id)) return false;
+      seen.add(m.session_id);
+      return true;
+    }).slice(0, 8);
+
+    const list = document.getElementById('history-list');
+    list.innerHTML = sessions.map(s => `
+      <div class="history-item" onclick="loadSession('${s.session_id}')">
+        💬 ${s.content.substring(0, 50)}${s.content.length > 50 ? '...' : ''}
+      </div>
+    `).join('');
+  }
+
+  async function loadSession(sessionId) {
+    if (!currentUser || !supabaseClient) return;
+    const { data } = await supabaseClient
+      .from('chat_messages')
+      .select('*')
+      .eq('user_id', currentUser.id)
+      .eq('session_id', sessionId)
+      .order('created_at', { ascending: true });
+
+    if (!data) return;
+    currentSessionId = sessionId;
+    messages = data.map(m => ({ role: m.role, content: m.content }));
+
+    const container = document.getElementById('chat-messages');
+    container.innerHTML = '';
+    data.forEach(m => addMsg(m.content, m.role));
+  }
+
+  // ── LANGUAGE ──
+  let lang = 'es';
+  function setLang(l) {
+    lang = l;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
+    document.querySelectorAll('[data-' + l + ']').forEach(el => {
+      const val = el.getAttribute('data-' + l);
+      if (el.tagName === 'INPUT') el.placeholder = el.getAttribute('data-' + l + '-placeholder') || val;
+      else el.innerHTML = val;
+    });
+    document.querySelectorAll('[data-' + l + '-placeholder]').forEach(el => {
+      el.placeholder = el.getAttribute('data-' + l + '-placeholder');
+    });
+    // quick prompts
+    document.querySelectorAll('.quick-btn').forEach(b => {
+      b.textContent = b.getAttribute('data-' + l) || b.textContent;
+    });
+  }
+
+  // ── CHAT ──
+  const SYSTEM_PROMPT = `Eres Advertise IA, un experto en marketing digital con 10 años de experiencia. Ayudas a empresas y emprendedores a crecer con estrategias de marketing inteligentes.
+
+ESPECIALIDADES: Meta Ads, Google Ads, TikTok Ads, SEO, email marketing, contenido para redes sociales, estrategia de marca, copywriting, análisis de métricas.
+
+ESTILO: Directo, experto y cercano. Siempre das ejemplos concretos. Nunca das respuestas vagas. Si el usuario no ha dicho su sector, lo preguntas para dar recomendaciones más precisas.
+
+FORMATO: Respuestas claras y bien estructuradas. Usa emojis con moderación. Máximo 200 palabras por respuesta. Si puedes, da entre 3 y 5 puntos accionables.
+
+IDIOMA: Responde siempre en el mismo idioma en que te escriben (español o inglés).`;
+
+  let messages = [];
+  let isLoading = false;
+
+  function addMsg(text, role) {
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + (role === 'user' ? 'user' : 'ai');
+    div.innerHTML = text.replace(/\n/g, '<br>');
+    document.getElementById('chat-messages').appendChild(div);
+    document.getElementById('chat-messages').scrollTop = 99999;
+    return div;
+  }
+
+  function sendQuick(btn) {
+    document.getElementById('chat-input').value = btn.textContent;
+    document.getElementById('quick-prompts').style.display = 'none';
+    sendMessage();
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text || isLoading) return;
+    input.value = '';
+    isLoading = true;
+    document.getElementById('send-btn').disabled = true;
+
+    addMsg(text, 'user');
+    messages.push({ role: 'user', content: text });
+    saveMessage('user', text);
+
+    const typing = addMsg('✦ Analizando...', 'typing');
+
+    try {
+      const res = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json'
+          },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: messages
+        })
+      });
+      const data = await res.json();
+      const reply = data.content?.[0]?.text || 'Lo siento, hubo un error. Inténtalo de nuevo.';
+      typing.remove();
+      addMsg(reply, 'ai');
+      messages.push({ role: 'assistant', content: reply });
+      saveMessage('assistant', reply);
+    } catch (e) {
+      typing.remove();
+      addMsg('Hubo un error de conexión. Por favor inténtalo de nuevo.', 'ai');
+    }
+
+    isLoading = false;
+    document.getElementById('send-btn').disabled = false;
+    input.focus();
+  }
+</script>
+
+  <!-- AUTH MODAL -->
+  <div class="auth-overlay" id="auth-overlay">
+    <div class="auth-box" style="position:relative;">
+      <button class="auth-close" onclick="closeAuth()">×</button>
+      <div class="auth-logo"><img src="logo.png" alt="Advertise IA" style="height:40px;"/></div>
+      <div class="auth-title" id="auth-title">Bienvenido</div>
+      <div class="auth-sub" id="auth-sub">Guarda tus conversaciones y accede desde cualquier dispositivo</div>
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchTab('login')" id="tab-login">Iniciar sesión</button>
+        <button class="auth-tab" onclick="switchTab('register')" id="tab-register">Registrarse</button>
+      </div>
+      <div class="auth-field">
+        <label>Email</label>
+        <input type="email" id="auth-email" placeholder="tu@email.com"/>
+      </div>
+      <div class="auth-field">
+        <label>Contraseña</label>
+        <input type="password" id="auth-password" placeholder="••••••••"/>
+      </div>
+      <button class="auth-submit" onclick="submitAuth()" id="auth-btn">Entrar</button>
+      <div class="auth-error" id="auth-error"></div>
+    </div>
+  </div>
+
+</body>
+</html>
